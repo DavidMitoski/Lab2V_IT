@@ -1,0 +1,36 @@
+﻿@model List<Lab2V.Models.EventModel>
+
+@{
+    ViewBag.Title = "ShowAllEvents";
+}
+
+<h2>Show all Events</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td class="fw-bold">Ime</td>
+            <td class="fw-bold">Lokacija</td>
+            <td class="fw-bold">Id</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </thead>
+    @{ 
+        int i = 0;
+        foreach (var events in Model)
+        {
+        <tr>
+            <td>@Html.ActionLink(events.Ime,"ShowEvents", new { id = events.Id})</td>
+            <td>@events.Lokacija</td>
+            <td>@events.Id</td>
+            <td>@Html.ActionLink("Edit","EditEvent", new {id = events.Id})</td>
+            <td>@Html.ActionLink("Delete","DeleteEvent", new { id = events.Id })</td>
+        </tr>
+            i++;
+        }
+    }
+</table>
+
+@Html.ActionLink("Add New Event", "AddEvent", "Events")
+

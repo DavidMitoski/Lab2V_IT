@@ -1,0 +1,14 @@
+﻿@model Lab2V.Models.EventModel
+
+@{
+    ViewBag.Title = "ShowEvents";
+}
+
+<h2>Show Events</h2>
+
+<h5>Name: @Model.Ime</h5>
+<h5>Lokacija: @Model.Lokacija</h5>
+<h5>Id: @Model.Id</h5>
+
+@Html.ActionLink("Back", "ShowAllEvents", "Events")
+
